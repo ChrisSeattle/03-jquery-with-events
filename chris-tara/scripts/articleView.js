@@ -84,6 +84,19 @@ articleView.handleMainNav = function() {
   // Clicking any .tab element should hide all the .tab-content sections, and then reveal the single .tab-content section that is associated with the clicked .tab element.
   // So: You need to dynamically build a selector string with the correct ID, based on the data available to you on the .tab element that was clicked.
 
+  $('#about').hide();
+
+  $('tab').on('click', function(e){
+    e.preventDefault();
+    // if this has a data content of about then 
+      // show about
+      // hide home
+    // if this has a data content of home then
+      // show home
+      // hide about 
+    // if $(`$(this)[data-category="${$(this).val()}"]`).fadeIn(1000); 
+  });
+
   // REVIEW: Now trigger a click on the first .tab element, to set up the page.
   $('nav .tab:first').click();
 };
@@ -107,5 +120,6 @@ $(document).ready(function() {
   articleView.populateFilters(); 
   articleView.handleAuthorFilter(); 
   articleView.handleCategoryFilter(); 
-  articleView.setTeasers(); 
+  articleView.setTeasers();
+  articleView.handleMainNav();
 })
