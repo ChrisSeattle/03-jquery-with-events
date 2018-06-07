@@ -17,6 +17,11 @@
 
 01-01-2001 4:59pm - Application now has a fully-functional express server, with GET and POST routes for the book resource. -->
 06-07-2018 10:18am - Got the file tree to match our requirments, went over all REVIEW, COMMENT, TODO. Initial plan of the order of TODO.
+06-07-2018 12:01pm - Select boxes for Author and Category are working as planned. 
+06-07-2018 1:24pm - setTeasers functon to expand the article body for the article the user clicked "Read on →" link. We have not removed the link, or put in a show less function. 
+
+
+
 
 
 ## Credits and Collaborations
