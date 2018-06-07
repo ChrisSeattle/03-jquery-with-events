@@ -77,9 +77,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="scripts/blogArticles.js"></script>
   <script src="scripts/article.js"></script>
-  <!-- TODO: Link our new script file in. -->
+    <!-- DONE: Link our new script file in. -->
+    <script src="scripts/articleView.js"></script>
 
-  <!-- COMMENT: Explain the ordering of your script files. -->
-  <!-- PUT YOUR RESPONSE HERE -->
+
+  <!-- DONE COMMENT: Explain the ordering of your script files. -->
+  <!-- First we want jQuery to load since many of our JS files depend on it. Then we load blogArticles.js since it is the article data that the remaining scripts depend on having access to them. Third is sarticle.js, which creates all of the article object instances (using data from blogArticles.js), and puts them all on the HTML DOM. Finally, articleView.js is where we manipulate the articles after they are already in the DOM (thanks to article.js), plus it gives us the page navigation funciton. -- >
+
 </body>
 </html>
