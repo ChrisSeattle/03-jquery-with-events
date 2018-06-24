@@ -13,10 +13,10 @@ articleView.populateFilters = function() {
       // Start by grabbing the author's name from `this` article element, and then use that bit of text to create the option tag (in a variable named `optionTag`) that we can append to the #author-filter select element.
       authorName = $(this).attr('data-author');
 
-      // TODO: Refactor this concatenation using a template literal.
-      optionTag = '<option value="' + authorName + '">' + authorName + '</option>';
+      // DONE: Refactor this concatenation using a template literal.
+      optionTag = `<option value="${authorName}">${authorName}</option>`;
 
-      if ($('#author-filter option[value="' + authorName + '"]').length === 0) {
+      if ($(`#author-filter option[value="${authorName}"]`).length === 0) {
         $('#author-filter').append(optionTag);
       }
 
@@ -24,10 +24,10 @@ articleView.populateFilters = function() {
       // Avoid duplicates! We don't want to append the category name if the <select> already has this category as an option!
       category = $(this).attr('data-category');
 
-      // TODO: Refactor this concatenation using a template literal.
-      optionTag = '<option value="' + category + '">' + category + '</option>';
+      // DONE: Refactor this concatenation using a template literal.
+      optionTag = `<option value="${category}">${category}</option>`;
 
-      if ($('#category-filter option[value="' + category + '"]').length === 0) {
+      if ($(`#category-filter option[value="${category}"]`).length === 0) {
         $('#category-filter').append(optionTag);
       }
     }
@@ -62,7 +62,7 @@ articleView.handleCategoryFilter = function() {
       
       $('article').hide(); // hide all articles. 
       $(`article[data-category="${$(this).val()}"]`).fadeIn(1000); 
-      // only show category they selected, with a fade in. 
+      // only show category they selected, with a fade in.
     } else {
       // If the <select> menu was changed to an option that is blank, we should first show all the articles, except the one article we are using as a template.
       $('article').show(); // show all articles. 
@@ -80,24 +80,16 @@ articleView.handleCategoryFilter = function() {
 };
 
 articleView.handleMainNav = function() {
-  // TODO: Add an event handler to nav elements that will power the Tabs feature.
+  // DONE: Add an event handler to nav elements that will power the Tabs feature.
   // Clicking any .tab element should hide all the .tab-content sections, and then reveal the single .tab-content section that is associated with the clicked .tab element.
   // So: You need to dynamically build a selector string with the correct ID, based on the data available to you on the .tab element that was clicked.
 
-  $('#about').hide();
-
-  $('tab').on('click', function(e){
+  $('nav').on('click', '.tab', function (e) {
     e.preventDefault();
-    // if this has a data content of about then 
-      // show about
-      // hide home
-    // if this has a data content of home then
-      // show home
-      // hide about 
-    // if $(`$(this)[data-category="${$(this).val()}"]`).fadeIn(1000); 
+    $('.tab-content').hide();
+    $(`#${$(this).data('content')}`).fadeIn();
   });
 
-  // REVIEW: Now trigger a click on the first .tab element, to set up the page.
   $('nav .tab:first').click();
 };
 
